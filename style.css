@@ -1,0 +1,48 @@
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+body{
+    padding: 0;
+    margin: 0;
+    background: #000;
+}
+a{
+    text-decoration: none;
+    list-style: none;
+}
+.TopNavBar > a{
+    font-size: 24px;
+    font-family:  'Franklin Gothic Medium';
+    float: left;
+    padding-left: 13px;
+    padding-top: 24px;
+}
+.TopNavBar > a > .rs{
+    color: #FFDE03;
+}
+.TopNavBar > a > .card{
+    color: #9A9DA2;
+}
+.TopNavBar > nav{
+    float: right;
+}
+.TopNavBar > nav > ul > li{
+    float: left;
+    margin-top: 10px;
+
+}
+.TopNavBar > nav > ul > li > a {
+    color: #B8BABD;
+    font-size: 10px;
+    padding: 10px;
+    font-family: Helvetica;
+    font-weight: bold;
+    padding-top: 30px;
+    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+.TopNavBar > nav > ul > li > a:hover{
+    border-bottom: 2px solid #FFDE03;
+}
