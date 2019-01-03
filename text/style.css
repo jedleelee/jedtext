@@ -1,0 +1,151 @@
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+body{
+    background: #efefef;
+}
+a{
+    text-decoration: none;
+    
+}
+.TopNavBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.TopNavBar > a{
+    font-size: 24px;
+    font-family:  'Franklin Gothic Medium';
+    float: left;
+    padding-left: 13px;
+    padding-top: 24px;
+}
+.TopNavBar > a > .rs{
+    color: #FFDE03;
+}
+.TopNavBar > a > .card{
+    color: #9A9DA2;
+}
+.TopNavBar > nav{
+    float: right;
+}
+.TopNavBar > nav > ul > li{
+    float: left;
+    margin-top: 10px;
+    list-style: none;
+}
+.TopNavBar > nav > ul > li > a {
+    color: #B8BABD;
+    font-size: 10px;
+    padding: 10px;
+    font-family: Helvetica;
+    font-weight: bold;
+    padding-top: 30px;
+    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+.TopNavBar > nav > ul > li > a:hover{
+    border-bottom: 2px solid #FFDE03;
+}
+.Banner{
+    background: url("./image/cow.jpg");
+    height: 505px;
+    background-position: center center;
+    background-size: cover;
+}
+
+main > .card{
+    max-width: 931px;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+}
+main .card .picture img{
+    height: 342px;
+    width: 245px;
+}
+main .card .text{
+    float: left;
+    width: 480px;
+    margin-left: 61px;
+    
+}
+main .card .picture{
+    float: left;
+}
+
+main .welcome{
+    
+    padding: 7px 12px;
+    color: #ffffff;
+    background-color: #FFDE03;
+    line-height: 15px;
+    position: relative;
+    
+}
+main .text h1{
+    margin-top: 30px;
+    margin-bottom: 7px;
+}
+hr{
+    height: 0;
+    border: none;
+    border-top: 2px solid #dedede;
+}
+main .text hr{
+    margin: 20px 0;
+}
+main .welcome .trangle{
+    border: 10px solid transparent;
+    border-left-color: #FFDE03;
+    border-top: none;
+    position: absolute;
+    left: 5px;
+    top: 100%;
+}
+
+main .card .pic-text{
+    padding: 52px 58px;
+}
+main .card dd,dt{
+    float: left;
+    padding: 10px 0 ;
+}
+main .card dd{
+    width: 70%;
+    color: #9da8a7;
+}
+main .card dt{
+    width: 30%;
+    font-weight: bold;
+}
+main .card > footer.media{
+    background: #FFDE03;
+    text-align: center;
+  }
+main .card > footer.media > a{
+    display: inline-block;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0;
+    border-radius: 50%;
+    margin: 16px;
+  }
+main .card > footer.media > a:hover{
+    background: #e5c703;
+  }
+  main .card svg{
+    width: 30px;
+    height: 30px; 
+    fill: white;
+    vertical-align: top;
+  }
