@@ -3,7 +3,7 @@
 	<head>
 		<title>简历</title>
 		<link rel="stylesheet" href="style.css">
-		
+		<script src="//at.alicdn.com/t/font_996577_tjnyo2u4o6.js"></script>
 		<style>
 			.icon {
 			width: 1em; height: 1em;
@@ -90,37 +90,72 @@
 					</a>
 				</footer>
 			</div>
+			
 		</main>
-		<a href="button" alt="下载">下载 pdf 简历</a>
-		<p>jed， 前端工程师，现在在 饥人谷 学前端课程。 <br>
-					技能：前端开发，Rails 开发，Node.js 开发</p>
-		<section>
+		<p class="downlode-wrapp">
+			<a  href="button" alt="下载" class="downlode">下载 pdf 简历</a>
+		</p>
+		<p class="self-introduction">Hello! I’m Jed Lee. Senior Web Developer specializing in front end development. Experienced with all stages of the development cycle for dynamic web projects. Well-versed in numerous programming languages including JavaScript, SQL, and C. Stng background in project management and customer relations.</p>
+		<section class="skill">
 			<h2>技能</h2>
-			<ol>
-				<li>HTML 5 &amp; CSS 3</li>
-				<li>JavaScript</li>
-				<li>jQuery</li>
-				<li>Vue</li>
-				<li>React</li>
-				<li>HTTP</li>
+			<ol class="clearfix">
+				<li>
+					<h3>HTML 5 &amp; CSS 3</h3>
+					<div class="progressBar">
+						<div class="progress one"></div>
+					</div> </li>
+				<li>
+					<h3>JavaScript</h3>
+					<div class="progressBar"><div class="progress two"></div></div>  </li>
+				<li>
+					<h3>jQuery</h3>
+					<div class="progressBar"><div class="progress three"></div></div> </li>
+				<li>
+					<h3>Vue</h3>
+					<div class="progressBar"><div class="progress four"></div></div> </li>
+				<li>
+					<h3>React</h3>
+					<div class="progressBar"><div class="progress five"></div></div></li>
+				<li>
+					<h3>HTTP</h3>
+					<div class="progressBar"><div class="progress six"></div></div> </li>
 			</ol>
 		</section>
-		<section>
+		<section class="collection">
 			<h2>作品集</h2>
 			<nav>
-				<ol>
-					<li>all</li>
-					<li>框架</li>
-					<li>原生JS&amp;CSS</li>
+				<ol class="clearfix">
+					<li id="collectionAll">all</li>
+					<li id="collectionFrame">框架</li>
+					<li id="collectionNativity">原生JS&amp;CSS</li>
 				</ol>
+				<div id="collectionBar" class="bar state-1">
+					<div class="bar-in"></div>
+				</div>
 			</nav>
-			<div class="jobs">
-				<div class="big"></div>
-				<div class="big"></div>
-				<div class="big"></div>
+			<div  class="works">
+				<div class="big">
+					<img src="image/future.png" alt="">
+				</div>
+				<div class="small">
+					<img src="image/computer.png" alt="">
+				</div>
+				<div class="small one">
+					<img src="image/qiang.png" alt="">
+				</div>
 			</div>
 		</section>
-		<script src="//at.alicdn.com/t/font_996577_tjnyo2u4o6.js"></script>
+		<script>
+			collectionAll.onclick = function(){
+			  collectionBar.className = 'bar state-1'
+			}
+			collectionFrame.onclick = function(){
+			  collectionBar.className = 'bar state-2'
+			}
+			collectionNativity.onclick = function(){
+			  collectionBar.className = 'bar state-3'
+			}
+		</script>
 	</body>
 </html>
 

@@ -15,11 +15,17 @@ a{
     text-decoration: none;
     
 }
+ol,ul{
+    list-style: none;
+}
 .TopNavBar{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    background: white;
+    box-shadow: 17px 53px 23px -44px rgba(142,148,150,0.62);
+    z-index: 100;
 }
 .TopNavBar > a{
     font-size: 24px;
@@ -64,10 +70,12 @@ a{
 
 main > .card{
     max-width: 931px;
-    border: 1px solid;
+    border: 1px solid transparent;
     margin-left: auto;
     margin-right: auto;
     background-color: #FFFFFF;
+    box-shadow: -5px 9px 24px -7px rgba(142,148,150,0.62);
+    z-index: -1;
 }
 main .card .picture img{
     height: 342px;
@@ -111,7 +119,11 @@ main .welcome .trangle{
     position: absolute;
     left: 5px;
     top: 100%;
+    z-index: 0;
+    
 }
+
+
 
 main .card .pic-text{
     padding: 52px 58px;
@@ -131,7 +143,7 @@ main .card dt{
 main .card > footer.media{
     background: #FFDE03;
     text-align: center;
-  }
+}
 main .card > footer.media > a{
     display: inline-block;
     width: 40px;
@@ -139,13 +151,178 @@ main .card > footer.media > a{
     padding: 5px 0;
     border-radius: 50%;
     margin: 16px;
-  }
+}
 main .card > footer.media > a:hover{
     background: #e5c703;
-  }
-  main .card svg{
+}
+main .card svg{
     width: 30px;
     height: 30px; 
     fill: white;
     vertical-align: top;
-  }
+}
+main{
+    margin-top: -316px;
+}
+.downlode-wrapp{
+    text-align: center;
+}
+.downlode {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    border: 1px solid #B8BABD;
+    display: inline-block;
+    background-color: #EFEFEF;
+    border-radius: 4px;
+    color: #3D4451;
+    font-weight: bold;
+    margin: 37px 0;
+    transition: box-shadow 1s;
+}
+.downlode:hover{
+    box-shadow: -2px 17px 88px -11px rgba(142,148,150,0.62);
+
+}
+.self-introduction{
+    max-width: 931px;
+    border: 1px solid transparent;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: kai;
+    line-height: 1.8;
+    font-weight: bold;
+    color: gray;
+}
+section{
+    max-width: 931px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.skill h2{
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    text-align: center;
+    margin-top: 87px;
+    margin-bottom: 33px;
+}
+.skill h3{
+    color:#5A606B;
+}
+.skill ol{
+    background-color: white;
+    box-shadow: -5px 9px 24px -7px rgba(142,148,150,0.62);
+    padding: 46px 23px 7px 53px;
+}
+.skill ol > li{
+    float: left;
+    width: calc( 50% - 30px );
+    padding-right: 30px;
+}
+
+.skill .progressBar{
+    border: 1px solid #FFF9CC;
+    height: 3px;
+    background-color: #FFF9CC;
+    border-radius: 2px;
+    margin: 8px 0 43px 0;
+}
+.skill .progressBar > .progress{
+    background-color: #e5c703;
+    height: 100%;
+    width: 60%;
+    border-radius: 2px;
+}
+.skill .progressBar  .two{
+    width: 60%;
+}
+.skill .progressBar  .three{
+    width: 70%;
+}
+.skill .progressBar  .four{
+    width: 80%;
+}
+.skill .progressBar > .five{
+    width: 40%;
+}
+.skill .progressBar > .six{
+    width: 30%;
+}   
+.collection h2{
+    text-align: center;
+    margin: 77px 0 43px;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.collection ol{
+    display: inline-block;
+    vertical-align: top;
+    
+}
+.collection{
+    text-align:center;
+}
+.collection nav{
+    text-align: center;
+}
+.collection ol li{
+    float: left;
+    margin-left: 49px;
+    cursor: pointer;
+    color: #3D4451;
+}
+.collection ol li:first-child{
+    margin-left: 0;
+}
+.collection nav{
+    display:inline-block;
+    vertical-align: top;
+}
+.collection nav .bar{
+    background-color:white;
+    height: 3px;
+    border-radius: 2px;
+    margin: 14px 0 31px;
+}
+.collection nav .bar-in{
+    height: 100%;
+    background-color: #e5c703;
+    border-radius: 2px;
+    transition: all 0.8s;
+}
+.collection nav .bar.state-1 .bar-in{
+    width: 45px;
+    margin-left: 0;
+}
+.collection nav .bar.state-2 .bar-in{
+    width: 70px;
+    margin-left: 49px;
+}
+.collection nav .bar.state-3 .bar-in{
+    width: 106px;
+    margin-left: 131px;
+}
+.collection .works{
+    position: relative;
+    
+}
+.collection .works div{
+    position: absolute;
+    z-index: -1;
+}
+.collection .works .big{
+    top: 0;
+    left: 0;
+}
+.collection .works .small{
+    top: 0;
+    left: 620px;
+}
+.collection .works .small.one{
+    top: 296px;
+    left: 620px;
+}
