@@ -1,328 +1,134 @@
-.clearfix::after{
-    content: '';
-    display: block;
-    clear: both;
+.clearfix::after{content: '';display: block;clear: both;}
+*{padding: 0;margin: 0;}
+body{background: #efefef;}
+a{text-decoration: none;}
+ol,ul{list-style: none;}
+.loading {width: 200px;height: 200px;position: relative;}
+.loading::before,.loading::after{content: '';position: absolute;width: 0px;
+    height: 0px;background: black;border-radius: 50%;top: 0;left: 0;right: 0;
+    bottom: 0;margin: auto;animation: s 1.5s linear infinite;}
+.loading::after{animation-delay: 0.8s;}
+@keyframes s{
+    0{
+        width: 0px;
+        height: 0px;
+        opacity: 1;
+    }
+    100%{
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
 }
-*{
-    padding: 0;
-    margin: 0;
-    
+.site-welcome{display: none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;
+    background: #efefef;z-index: 10;justify-content: center;align-items:center;}
+.site-welcome.active{display:flex;}
+.TopNavBar{position: fixed;top: 0;left: 0;width: 100%;}
+.TopNavBar.sticky{background: #efefef;z-index: 1;box-shadow: 0px 8px 11px 6px rgba(81,81,81,0.86);padding: 10px 0;}
+.TopNavBar > a{font-size: 24px;font-family:  'Franklin Gothic Medium';
+    float: left;padding-left: 13px;padding-top: 12px;padding-bottom: 9px;}
+.TopNavBar > a > .rs{color: #FFDE03;}
+.TopNavBar > a > .card{color: #9A9DA2;}
+.TopNavBar > nav{float: right;}
+.TopNavBar > nav > ul > li{float: left;margin-top: 10px;list-style: none;position:relative;}
+.TopNavBar > nav > ul > li > a {color: #B8BABD;font-size: 10px;padding: 10px;
+    font-family: Helvetica;font-weight: bold;padding-top: 30px;border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent;}
+.TopNavBar > nav > ul > li.active > a:after{content:'';display:block;position:absolute;top:100%;left:0;width: 100%;
+    height: 3px;background:#FFDE03;animation:menuSlide 0.3s;}
+@keyframes menuSlide{0%{width:0;}100%{width:100%;}}
+.TopNavBar .submenu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background-color: #efefef;
+    color:black;
+    box-shadow: 2px 7px 18px 3px rgba(0,0,0,0.67);
+    margin-top: 3px;
 }
-body{
-    background: #efefef;
+.TopNavBar li.active > .submenu{
+    display:block;
+    animation: su .3s;
 }
-a{
-    text-decoration: none;
-    
+@keyframes su{
+    0%{
+        margin-right:100%;
+    }
+    100%{
+        margin-right: 0%;
+    }
 }
-ol,ul{
-    list-style: none;
-}
-.TopNavBar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    box-shadow: 17px 53px 23px -44px rgba(142,148,150,0.62);
-    z-index: 100;
-}
-.TopNavBar > a{
-    font-size: 24px;
-    font-family:  'Franklin Gothic Medium';
-    float: left;
-    padding-left: 13px;
-    padding-top: 24px;
-}
-.TopNavBar > a > .rs{
-    color: #FFDE03;
-}
-.TopNavBar > a > .card{
-    color: #9A9DA2;
-}
-.TopNavBar > nav{
-    float: right;
-}
-.TopNavBar > nav > ul > li{
-    float: left;
-    margin-top: 10px;
-    list-style: none;
-}
-.TopNavBar > nav > ul > li > a {
-    color: #B8BABD;
-    font-size: 10px;
-    padding: 10px;
-    font-family: Helvetica;
-    font-weight: bold;
-    padding-top: 30px;
-    border-bottom: 2px solid transparent;
-    border-bottom: 2px solid transparent;
-}
-.TopNavBar > nav > ul > li > a:hover{
-    border-bottom: 2px solid #FFDE03;
-}
-.Banner{
-    background: url("./image/cow.jpg");
-    height: 505px;
-    background-position: center center;
-    background-size: cover;
+.TopNavBar .submenu > li{
+    white-space: nowrap;
+    padding: 5px 10px;
 }
 
-main > .card{
-    max-width: 931px;
-    border: 1px solid transparent;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #FFFFFF;
-    box-shadow: -5px 9px 24px -7px rgba(142,148,150,0.62);
-    z-index: -1;
-}
-main .card .picture img{
-    height: 342px;
-    width: 245px;
-}
-main .card .text{
-    float: left;
-    width: 480px;
-    margin-left: 61px;
-    
-}
-main .card .picture{
-    float: left;
-}
+.Banner{background: url("./image/cow.jpg");height: 505px;background-position: center center;
+    background-size: cover;}
+main > .card{max-width: 931px;border: 1px solid transparent;margin-left: auto;
+    margin-right: auto;background-color: #FFFFFF;box-shadow: -5px 9px 24px -7px rgba(142,148,150,0.62);
+    }
+main .card .picture img{ height: 342px;width: 245px;}
+main .card .text{float: left;width: 480px;margin-left: 61px;}
+main .card .picture{float: left;}
+main .welcome{padding: 7px 12px;color: #ffffff;background-color: #FFDE03;
+    line-height: 15px;position: relative;}
+main .text h1{margin-top: 30px;margin-bottom: 7px;}
+hr{height: 0;border: none;border-top: 2px solid #dedede;}
+main .text hr{margin: 20px 0;}
+main .welcome .trangle{border: 10px solid transparent;border-left-color: #FFDE03;
+    border-top: none;position: absolute;left: 5px;top: 100%;z-index: 0;}
+main .card .pic-text{padding: 52px 58px;}
+main .card dd,dt{float: left;padding: 10px 0 ;}
+main .card dd{width: 70%;color: #9da8a7;}
+main .card dt{width: 30%;font-weight: bold;}
+main .card > footer.media{background: #FFDE03;text-align: center;}
+main .card > footer.media > a{display: inline-block;width: 40px;line-height: 30px;
+    padding: 5px 0;border-radius: 50%;margin: 16px;}
+main .card > footer.media > a:hover{background: #e5c703;}
+main .card svg{width: 30px;height: 30px; fill: white;vertical-align: top;}
+main{margin-top: -316px;}
+.downlode-wrapp{text-align: center;}
+.downlode {font-size: 14px;line-height: 16px;padding: 21px 55px;border: 1px solid #B8BABD;
+    display: inline-block;background-color: #EFEFEF;border-radius: 4px;color: #3D4451;
+    font-weight: bold;margin: 37px 0;transition: box-shadow 1s;}
+.downlode:hover{box-shadow: -2px 17px 88px -11px rgba(142,148,150,0.62);}
+.self-introduction{max-width: 931px; border: 1px solid transparent;margin-left: auto;margin-right: auto;
+    text-align: center;font-family: kai;line-height: 1.8;font-weight: bold;
+    color: gray;}
+section{max-width: 931px;margin-left: auto;margin-right: auto;}
+.skill h2{color: #3d4451;font-size: 34px;line-height: 1.2;text-align: center; margin-top: 87px;
+    margin-bottom: 33px;}
+.skill h3{color:#5A606B;}
+.skill ol{background-color: white;box-shadow: -5px 9px 24px -7px rgba(142,148,150,0.62);
+    padding: 46px 23px 7px 53px;}
+.skill ol > li{float: left;width: calc( 50% - 30px );padding-right: 30px;}
 
-main .welcome{
-    
-    padding: 7px 12px;
-    color: #ffffff;
-    background-color: #FFDE03;
-    line-height: 15px;
-    position: relative;
-    
-}
-main .text h1{
-    margin-top: 30px;
-    margin-bottom: 7px;
-}
-hr{
-    height: 0;
-    border: none;
-    border-top: 2px solid #dedede;
-}
-main .text hr{
-    margin: 20px 0;
-}
-main .welcome .trangle{
-    border: 10px solid transparent;
-    border-left-color: #FFDE03;
-    border-top: none;
-    position: absolute;
-    left: 5px;
-    top: 100%;
-    z-index: 0;
-    
-}
-
-
-
-main .card .pic-text{
-    padding: 52px 58px;
-}
-main .card dd,dt{
-    float: left;
-    padding: 10px 0 ;
-}
-main .card dd{
-    width: 70%;
-    color: #9da8a7;
-}
-main .card dt{
-    width: 30%;
-    font-weight: bold;
-}
-main .card > footer.media{
-    background: #FFDE03;
-    text-align: center;
-}
-main .card > footer.media > a{
-    display: inline-block;
-    width: 40px;
-    line-height: 30px;
-    padding: 5px 0;
-    border-radius: 50%;
-    margin: 16px;
-}
-main .card > footer.media > a:hover{
-    background: #e5c703;
-}
-main .card svg{
-    width: 30px;
-    height: 30px; 
-    fill: white;
-    vertical-align: top;
-}
-main{
-    margin-top: -316px;
-}
-.downlode-wrapp{
-    text-align: center;
-}
-.downlode {
-    font-size: 14px;
-    line-height: 16px;
-    padding: 21px 55px;
-    border: 1px solid #B8BABD;
-    display: inline-block;
-    background-color: #EFEFEF;
-    border-radius: 4px;
-    color: #3D4451;
-    font-weight: bold;
-    margin: 37px 0;
-    transition: box-shadow 1s;
-}
-.downlode:hover{
-    box-shadow: -2px 17px 88px -11px rgba(142,148,150,0.62);
-
-}
-.self-introduction{
-    max-width: 931px;
-    border: 1px solid transparent;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-family: kai;
-    line-height: 1.8;
-    font-weight: bold;
-    color: gray;
-}
-section{
-    max-width: 931px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.skill h2{
-    color: #3d4451;
-    font-size: 34px;
-    line-height: 1.2;
-    text-align: center;
-    margin-top: 87px;
-    margin-bottom: 33px;
-}
-.skill h3{
-    color:#5A606B;
-}
-.skill ol{
-    background-color: white;
-    box-shadow: -5px 9px 24px -7px rgba(142,148,150,0.62);
-    padding: 46px 23px 7px 53px;
-}
-.skill ol > li{
-    float: left;
-    width: calc( 50% - 30px );
-    padding-right: 30px;
-}
-
-.skill .progressBar{
-    border: 1px solid #FFF9CC;
-    height: 3px;
-    background-color: #FFF9CC;
-    border-radius: 2px;
-    margin: 8px 0 43px 0;
-}
-.skill .progressBar > .progress{
-    background-color: #e5c703;
-    height: 100%;
-    width: 60%;
-    border-radius: 2px;
-}
-.skill .progressBar  .two{
-    width: 60%;
-}
-.skill .progressBar  .three{
-    width: 70%;
-}
-.skill .progressBar  .four{
-    width: 80%;
-}
-.skill .progressBar > .five{
-    width: 40%;
-}
-.skill .progressBar > .six{
-    width: 30%;
-}   
-.collection h2{
-    text-align: center;
-    margin: 77px 0 43px;
-    color: #3d4451;
-    font-size: 34px;
-    line-height: 1.2;
-}
-
-.collection ol{
-    display: inline-block;
-    vertical-align: top;
-    
-}
-.collection{
-    text-align:center;
-}
-.collection nav{
-    text-align: center;
-}
-.collection ol li{
-    float: left;
-    margin-left: 49px;
-    cursor: pointer;
-    color: #3D4451;
-}
-.collection ol li:first-child{
-    margin-left: 0;
-}
-.collection nav{
-    display:inline-block;
-    vertical-align: top;
-}
-.collection nav .bar{
-    background-color:white;
-    height: 3px;
-    border-radius: 2px;
-    margin: 14px 0 31px;
-}
-.collection nav .bar-in{
-    height: 100%;
-    background-color: #e5c703;
-    border-radius: 2px;
-    transition: all 0.8s;
-}
-.collection nav .bar.state-1 .bar-in{
-    width: 45px;
-    margin-left: 0;
-}
-.collection nav .bar.state-2 .bar-in{
-    width: 70px;
-    margin-left: 49px;
-}
-.collection nav .bar.state-3 .bar-in{
-    width: 106px;
-    margin-left: 131px;
-}
-.collection .works{
-    position: relative;
-    
-}
-.collection .works div{
-    position: absolute;
-    z-index: -1;
-}
-.collection .works .big{
-    top: 0;
-    left: 0;
-}
-.collection .works .small{
-    top: 0;
-    left: 620px;
-}
-.collection .works .small.one{
-    top: 296px;
-    left: 620px;
-}
+.skill .progressBar{border: 1px solid #FFF9CC;height: 3px;background-color: #FFF9CC;border-radius: 2px;
+    margin: 8px 0 43px 0;}
+.skill .progressBar > .progress{background-color: #e5c703;height: 100%;width: 60%;
+    border-radius: 2px;}
+.skill .progressBar  .two{width: 60%;}
+.skill .progressBar  .three{width: 70%;}
+.skill .progressBar  .four{width: 80%;}
+.skill .progressBar > .five{width: 40%;}
+.skill .progressBar > .six{ width: 30%;}   
+.collection h2{text-align: center;margin: 77px 0 43px;color: #3d4451; font-size: 34px;
+    line-height: 1.2;}
+.collection ol{display: inline-block;vertical-align: top;}
+.collection{text-align:center;}
+.collection nav{text-align: center;}
+.collection ol li{float: left;margin-left: 49px;cursor: pointer;color: #3D4451;}
+.collection ol li:first-child{margin-left: 0;}
+.collection nav{display:inline-block; vertical-align: top;}
+.collection nav .bar{background-color:white; height: 3px; border-radius: 2px; margin: 14px 0 31px;}
+.collection nav .bar-in{height: 100%;background-color: #e5c703;border-radius: 2px;transition: all 0.8s;}
+.collection nav .bar.state-1 .bar-in{width: 45px;margin-left: 0;}
+.collection nav .bar.state-2 .bar-in{ width: 70px;margin-left: 49px;}
+.collection nav .bar.state-3 .bar-in{width: 106px;margin-left: 131px;}
+.collection .works{position: relative;}
+.collection .works div{position: absolute;}
+.collection .works .big{top: 0;left: 0;}
+.collection .works .small{top: 0;left: 620px;}
+.collection .works .small.one{top: 296px;left: 620px; }
