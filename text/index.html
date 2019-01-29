@@ -52,7 +52,7 @@
 		<div class="Banner">
 		</div>
 		<main id="siteAbout">
-			<div class="card" >
+			<div date-x class="card" >
 				<div class="pic-text clearfix">
 					<div class="picture" >
 						<img src="./image/avatar.png" alt="头像">
@@ -112,7 +112,7 @@
 			<a  href="button" alt="下载" class="downlode">下载 pdf 简历</a>
 		</p>
 		<p class="self-introduction">Hello! I’m Jed Lee. Senior Web Developer specializing in front end development. Experienced with all stages of the development cycle for dynamic web projects. Well-versed in numerous programming languages including JavaScript, SQL, and C. Stng background in project management and customer relations.</p>
-		<section class="skill" id="siteSkills">
+		<section date-x class="skill" id="siteSkills">
 			<h2>技能</h2>
 			<ol class="clearfix">
 				<li>
@@ -137,7 +137,7 @@
 					<div class="progressBar"><div class="progress six"></div></div> </li>
 			</ol>
 		</section>
-		<section class="collection" id="siteExperience">
+		<section date-x class="collection" id="siteExperience">
 			<h2>作品集</h2>
 			<nav>
 				<ol class="clearfix">
@@ -172,7 +172,12 @@
 			  collectionBar.className = 'bar state-3'
 			}
 		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
 		<script>
+			let specialTags = document.querySelectorAll('[date-x]')
+			for(let i =0; i<specialTags.length; i++){
+				specialTags[i].classList.add('offfset')
+			}
 			setTimeout(function() {
 				siteWelcome.classList.remove('active')
 			},3000)
@@ -182,6 +187,29 @@
 				}else{
 					TopNavBar.classList.remove('sticky')
 				}
+
+				
+				let specialTags = document.querySelectorAll('[date-x]')
+				let minIndex = 0
+				for(let i = 1;i< specialTags.length; i++){
+					if(Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex] - window.scrollY)){
+						minIndex = i
+					}
+				}
+				/*for(let i=0; i<specialTags.length; i++){
+					specialTags[i].classList.remove('active')
+				}
+				specialTags[minIndex].classList.add('active')*/
+				specialTags[minIndex].classList.remove('offset')
+				let id = specialTags[minIndex].id
+				let a = document.querySelector('a[href="#'+ id +'"]' )
+				
+				let li = a.parentNode
+				let brothersAndMe = li.parentNode.children
+				for(let i=0; i<brothersAndMe.length; i++){
+					brothersAndMe[i].classList.remove('highlight')
+				}
+				li.classList.add('highlight')
 			}
 			let liTags = document.querySelectorAll('nav.menu > ul > li')
 			for(let i=0; i<liTags.length; i++){
@@ -199,14 +227,35 @@
 				}
 			}
 			let aTags = document.querySelectorAll('nav.menu > ul > li > a')
+			function animate(time) {
+				requestAnimationFrame(animate);
+				TWEEN.update(time);
+			}
+			requestAnimationFrame(animate);
 			for(let i=0; i<liTags.length; i++){
 				aTags[i].onclick = function(x){
 					x.preventDefault()
-					let a = x.currentTarget
-					let href = a.getAttribute('href')
-					let element = document.querySelector(href)
-					let top = element.offsetTop
-					window.scrollTo(0, top - 90)
+					//let a = x.currentTarget
+					//let href = a.getAttribute('href')
+					//let element = document.querySelector(href)
+					let top = document.querySelector(x.currentTarget.getAttribute('href')).offsetTop
+					
+					
+					let currentTop = window.scrollY
+					let targetTop = top - 90
+					var coords = { y: currentTop}; // Start at (0, 0)
+					var s = targetTop - currentTop
+					var t = Math.abs(s/100)*300
+					if(t > 500){ t = 500}
+					var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+						.to({ y: targetTop}, t) // Move to (300, 200) in 1 second.
+						.easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+						.onUpdate(function() { // Called after tween.js updates 'coords'.
+							// Move 'box' to the position described by 'coords' with a CSS translation.
+							window.scrollTo(0,coords.y)
+						})
+						.start(); // Start the tween缓动 immediately.
+					
 				}
 			}
 		</script>

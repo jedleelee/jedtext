@@ -7,6 +7,25 @@ ol,ul{list-style: none;}
 .loading::before,.loading::after{content: '';position: absolute;width: 0px;
     height: 0px;background: black;border-radius: 50%;top: 0;left: 0;right: 0;
     bottom: 0;margin: auto;animation: s 1.5s linear infinite;}
+[date-x].active{
+    outline: 10px solid red;
+}
+[date-x].offset{
+    transform: translateY(100px);
+    
+}
+[date-x]{
+    transform: translateY(0);
+    transition: all .5s;
+}
+@keyframes slideup{
+    0%{
+        transform: translateY(-30px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
 .loading::after{animation-delay: 0.8s;}
 @keyframes s{
     0{
@@ -34,7 +53,7 @@ ol,ul{list-style: none;}
 .TopNavBar > nav > ul > li > a {color: #B8BABD;font-size: 10px;padding: 10px;
     font-family: Helvetica;font-weight: bold;padding-top: 30px;border-bottom: 2px solid transparent;
     border-bottom: 2px solid transparent;}
-.TopNavBar > nav > ul > li.active > a:after{content:'';display:block;position:absolute;top:100%;left:0;width: 100%;
+    .TopNavBar > nav > ul > li.highlight > a::after, .TopNavBar > nav > ul > li.active > a::after{content:'';display:block;position:absolute;top:100%;left:0;width: 100%;
     height: 3px;background:#FFDE03;animation:menuSlide 0.3s;}
 @keyframes menuSlide{0%{width:0;}100%{width:100%;}}
 .TopNavBar .submenu{
@@ -49,16 +68,16 @@ ol,ul{list-style: none;}
 }
 .TopNavBar li.active > .submenu{
     display:block;
-    animation: su .3s;
+    animation: submenuSlide .3s;
 }
-@keyframes su{
+@keyframes submenuSlide{
     0%{
-        margin-right:100%;
+      margin-right: 100%;
     }
     100%{
-        margin-right: 0%;
+      margin-right: 0;
     }
-}
+  }
 .TopNavBar .submenu > li{
     white-space: nowrap;
     padding: 5px 10px;
